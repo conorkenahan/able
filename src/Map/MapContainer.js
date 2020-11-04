@@ -9,7 +9,6 @@ export class MapContainer extends React.Component {
   };
 
   onMarkerClick = (props, marker, e) => {
-    console.log(props);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -18,7 +17,6 @@ export class MapContainer extends React.Component {
   };
 
   onMapClicked = (mapProps, map, clickEvent) => {
-    console.log(mapProps, map, clickEvent);
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -54,19 +52,17 @@ export class MapContainer extends React.Component {
               <h1>{this.state.selectedPlace.name}</h1>
             </div>
           </InfoWindow>
-          <Marker onClick={this.onMarkerClick} name={"location1"} />
+          <Marker onClick={this.onMarkerClick} name={"Italian Restaurant"} />
           <Marker
             onClick={this.onMarkerClick}
-            title={"The marker`s title will appear as a tooltip."}
-            name={"location2"}
+            name={"Art Museum"}
             position={{ lat: 40.729145, lng: -73.9817311 }}
           />
           <Marker
             onClick={this.onMarkerClick}
-            name={"location3"}
+            name={"Washington Square Park"}
             position={{ lat: 40.729145, lng: -74 }}
           />
-          <Marker />
         </Map>
       </div>
     );

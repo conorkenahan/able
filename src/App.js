@@ -39,10 +39,8 @@ export default class App extends React.Component {
                 Able helps you find locations that are accessible for YOUR
                 needs.
               </h4>
-              <p>
-                Scroll the interactive map, or search places to view reviews of
-                your favorite, or new, locations!
-              </p>
+              <p>View reviews of your favorite, or new, locations below!</p>
+              <p className="subtext">(not all markers are working)</p>
             </section>
             <section>
               {/* <LocationSearch /> */}
