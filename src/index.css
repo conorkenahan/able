@@ -43,7 +43,7 @@ body {
 }
 .location-search-input {
   width: 250px;
-  height: 30px;
+  height: 300px;
   font-size: large;
   margin-top: 10px;
 }
@@ -172,6 +172,20 @@ p {
   max-width: 650px;
 }
 
-/* p + p {
-  margin-top: 15px;
-} */
+@media only screen and (max-width: 600px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .description {
+    width: 90%;
+    margin: auto;
+    align-items: center;
+  }
+
+  .googleMap {
+    height: 200px;
+    width: auto;
+  }
+}
