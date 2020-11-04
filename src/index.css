@@ -184,6 +184,18 @@ p {
     align-items: center;
   }
 
+  .prospectParkImage {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .placeReviews {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
   .googleMap {
     height: 200px;
     width: auto;
