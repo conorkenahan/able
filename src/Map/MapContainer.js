@@ -1,14 +1,18 @@
 import React from "react";
 import { Map, InfoWindow, GoogleApiWrapper, Marker } from "google-maps-react";
+import Context from "../Context";
+import { BrowserRouter, Link } from "react-router-dom";
 
 export class MapContainer extends React.Component {
+  static contextType = Context;
   state = {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
   };
 
-  onMarkerClick = (props, marker, e) => {
+  onMarkerClick = (props, marker) => {
+    this.context.onMarkerClick(props, marker);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -46,6 +50,7 @@ export class MapContainer extends React.Component {
           google={this.props.google}
           containerStyle={containerStyle}
           // draggable={false}
+          // ^ potentially make fixed map?
           onReady={this.handleMapReady}
           initialCenter={{
             lat: 40.670869,
@@ -54,47 +59,31 @@ export class MapContainer extends React.Component {
           zoom={14}
           onClick={this.onMapClicked}
         >
-          <Marker
-            onClick={this.onMarkerClick}
-            name={"Prospect Park"}
-            position={{ lat: 40.6602037, lng: -73.9689558 }}
-          />
-          <Marker
-            onClick={this.onMarkerClick}
-            name={"Prospect Park Zoo"}
-            position={{ lat: 40.6657246, lng: -73.9644911 }}
-          />
-          <Marker
-            onClick={this.onMarkerClick}
-            name={"Brooklyn Botanic Garden"}
-            position={{ lat: 40.66951, lng: -73.9625044 }}
-          />
-          <Marker
-            onClick={this.onMarkerClick}
-            name={"Brooklyn Museum"}
-            position={{ lat: 40.6712062, lng: -73.9636306 }}
-          />
-          <Marker
-            onClick={this.onMarkerClick}
-            name={"Chuko"}
-            position={{ lat: 40.6807746, lng: -73.9674534 }}
-          />
-          {/* <Marker
-            onClick={this.onMarkerClick}
-            name={"Maya Taqueria"}
-            position={{ lat: 40.67802449999999, lng: -73.9685058 }}
-          /> */}
-          <Marker
-            onClick={this.onMarkerClick}
-            name={"Brooklyn Public Library - Central Branch"}
-            position={{ lat: 40.67251110000001, lng: -73.9682 }}
-          />
+          {this.context.markers.map((marker, i) => (
+            <Marker
+              key={i}
+              onClick={this.onMarkerClick}
+              name={marker.name}
+              position={{
+                lat: marker.location.lat,
+                lng: marker.location.lng,
+              }}
+            />
+          ))}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
           >
             <div>
-              <h1>{this.state.selectedPlace.name}</h1>
+              {" "}
+              <BrowserRouter>
+                <Link
+                  to={`/reviews/${this.state.selectedPlace.name}`}
+                  className="markerTitle"
+                >
+                  {this.state.selectedPlace.name}
+                </Link>
+              </BrowserRouter>
             </div>
           </InfoWindow>
         </Map>

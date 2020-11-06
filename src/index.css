@@ -108,6 +108,11 @@ body {
   width: 60%;
 }
 
+.markerTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 /* buttons */
 .submitButton {
   display: inline-block;

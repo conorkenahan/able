@@ -83,6 +83,17 @@ export default class App extends React.Component {
         place_id: "ChIJzYGq1AlbwokR5rnEbWm1UxA",
       },
     ],
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {},
+
+    onMarkerClick: (props, marker) => {
+      this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true,
+      });
+    },
 
     rating: 0,
     changeRating: (newRating) => {
@@ -127,16 +138,18 @@ export default class App extends React.Component {
                 needs.
               </h4>
               <p>View reviews of your favorite, or new, locations below!</p>
-              <p className="subtext">(not all markers are working)</p>
+              <p className="subtext">
+                (all marker links currently lead to same review page)
+              </p>
             </section>
             <section>
               {/* <LocationSearch /> */}
               <MapContainer />
             </section>
-            <Link className="submitButton" to="/reviews/locationid">
+            <Link className="submitButton" to="/reviews/:locationid">
               see example reviews
             </Link>
-            <Link className="submitButton" to="/reviews/newreview">
+            <Link className="submitButton" to="/newreview">
               leave review
             </Link>
           </Route>
@@ -202,10 +215,11 @@ export default class App extends React.Component {
               </button>
             </form>
           </Route>
-          <Route path="/reviews/locationid">
+          <Route path={`/reviews/:${this.state.placeName}`}>
             <div className="placeReviews">
               <div>
                 <h1>Prospect Park</h1>
+                {/* {this.state.selectedPlace.name} is not working. state is not persisting */}
                 <p>Park in Brooklyn, New York</p>
                 <p></p>
               </div>
@@ -218,6 +232,22 @@ export default class App extends React.Component {
             <ul>
               <li className="userReview">
                 <h3>User1</h3>
+                <p className="reviewDate">June 4, 2020</p>
+                <StarRatings
+                  rating={3}
+                  starRatedColor="rgb(65, 91, 196)"
+                  changeRating={this.changeRating}
+                  numberOfStars={5}
+                  name="rating"
+                  starDimension="30px"
+                />
+                <p>
+                  I use a wheelchair and found the uneven paths to be rather
+                  difficult to navigate.
+                </p>
+              </li>
+              <li className="userReview">
+                <h3>User2</h3>
                 <p className="reviewDate">August 21, 2020</p>
                 <StarRatings
                   rating={5}
@@ -233,25 +263,9 @@ export default class App extends React.Component {
                   this park to be very quiet and peaceful.
                 </p>
               </li>
-              <li className="userReview">
-                <h3>User2</h3>
-                <p className="reviewDate">June 4, 2020</p>
-                <StarRatings
-                  rating={3}
-                  starRatedColor="rgb(65, 91, 196)"
-                  changeRating={this.changeRating}
-                  numberOfStars={5}
-                  name="rating"
-                  starDimension="30px"
-                />
-                <p>
-                  I use a wheelchair and found the uneven paths to be rather
-                  difficult to navigate.
-                </p>
-              </li>
             </ul>
           </Route>
-          <Route path="/reviews/newreview">
+          <Route path="/newreview">
             <form id="reviewForm" className="reviewForm">
               <p className="subtext">(will require user to be logged in)</p>
               <h3>Leave Review: </h3>
