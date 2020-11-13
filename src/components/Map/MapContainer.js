@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, InfoWindow, GoogleApiWrapper, Marker } from "google-maps-react";
-import Context from "../Context";
+import Context from "../../Context";
 import { BrowserRouter, Link } from "react-router-dom";
 
 export class MapContainer extends React.Component {
@@ -12,7 +12,6 @@ export class MapContainer extends React.Component {
   };
 
   onMarkerClick = (props, marker) => {
-    this.context.onMarkerClick(props, marker);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -43,6 +42,7 @@ export class MapContainer extends React.Component {
       width: "75%",
       height: "550px",
     };
+
     return (
       <div className="googleMapDiv">
         <Map
@@ -64,9 +64,10 @@ export class MapContainer extends React.Component {
               key={i}
               onClick={this.onMarkerClick}
               name={marker.name}
+              place_id={marker.place_id}
               position={{
-                lat: marker.location.lat,
-                lng: marker.location.lng,
+                lat: marker.geometry.location.lat,
+                lng: marker.geometry.location.lng,
               }}
             />
           ))}
@@ -75,10 +76,9 @@ export class MapContainer extends React.Component {
             visible={this.state.showingInfoWindow}
           >
             <div>
-              {" "}
               <BrowserRouter>
                 <Link
-                  to={`/reviews/${this.state.selectedPlace.name}`}
+                  to={`/reviews/${this.state.selectedPlace.place_id}`}
                   className="markerTitle"
                 >
                   {this.state.selectedPlace.name}
