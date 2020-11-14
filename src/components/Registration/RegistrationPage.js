@@ -42,7 +42,6 @@ export default class RegistrationPage extends Component {
         <form className="registrationForm" onSubmit={this.handleSubmit}>
           <fieldset>
             <h2>Sign Up!</h2>
-            <div role="alert">{error && <p className="red">{error}</p>}</div>
             <label
               className="registrationForm_name"
               htmlFor="registrationForm_name"
