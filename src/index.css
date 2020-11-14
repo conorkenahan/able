@@ -66,8 +66,7 @@ p {
 }
 
 fieldset {
-  min-width: 100%;
-  width: 100%;
+  width: 400px;
   padding: 20px 40px;
   margin: 0 auto;
   display: flex;
@@ -340,7 +339,6 @@ input[type="submit"] {
 
 @media only screen and (min-width: 520px) {
   fieldset {
-    min-width: 100%;
     width: 400px;
     padding: 1em 2em;
   }
