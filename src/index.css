@@ -296,6 +296,17 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+.loginReminder {
+  background-color: rgb(164, 161, 208);
+  color: #f7f7ff;
+  box-shadow: -1px 1px 5px 4px #8789c0;
+  border-radius: 8px;
+  max-height: 115px;
+  width: 400px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
 /* buttons */
 
 .radioButton {
@@ -309,6 +320,22 @@ input[type="submit"] {
 .checked {
   background: #f7f7ff;
   color: #111d4a;
+}
+
+.submitButton {
+  font-family: Comfortaa, "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 40px auto 20px;
+  padding: 8px 20px 8px 20px;
+  width: auto;
+  color: #fff;
+  background-color: #736b9c;
+  border: 1px solid #454545;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px 0 #1a1b41;
+  -webkit-transition: box-shadow 0.1s;
+  transition: box-shadow 0.1s;
 }
 
 /* MOBILE */

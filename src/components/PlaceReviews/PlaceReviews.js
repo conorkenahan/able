@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import config from "../../config";
 import Review from "../Review/Review";
 import NewReview from "../NewReview/NewReview";
+import TokenService from "../../services/token-service";
 
 export default class PlaceReviews extends Component {
   state = {
@@ -76,15 +78,19 @@ export default class PlaceReviews extends Component {
         )}
 
         <section className="place">
-          {/* <Link
-            to={`/newreview/${this.props.match.params.place_id}`}
-            className="leaveReviewButton"
-          >
-            Leave a review
-          </Link> */}
-          <div className="newReviewContainer">
-            <NewReview placeid={this.props.match.params.place_id} />
-          </div>
+          {TokenService.hasAuthToken() ? (
+            <div className="newReviewContainer">
+              <NewReview placeid={this.props.match.params.place_id} />
+            </div>
+          ) : (
+            <div className="loginReminder">
+              <h2>Login to leave a review!</h2>
+              <Link className="submitButton" to="/login">
+                Log in
+              </Link>
+            </div>
+          )}
+
           <section className="placeReviews">
             <ul>
               {this.state.reviews.map((review, i) => {

@@ -22,7 +22,6 @@ export default class MyReviews extends React.Component {
   render() {
     return (
       <section>
-        <h1>this is the MyReviews component ;)</h1>
         <section className="placeReviews">
           <ul>
             {this.state.reviews.map((review, i) => {
