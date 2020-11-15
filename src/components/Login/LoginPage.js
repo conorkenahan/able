@@ -5,6 +5,8 @@ import Context from "../../Context";
 export default class LoginPage extends Component {
   static contextType = Context;
 
+  state = { error: null };
+
   static defaultProps = {
     location: {},
     history: {
@@ -35,6 +37,7 @@ export default class LoginPage extends Component {
   };
 
   render() {
+    const { error } = this.state;
     const { loading = false } = this.context || false;
     return (
       <section className="loginPage">
@@ -47,6 +50,10 @@ export default class LoginPage extends Component {
           ) : (
             <>
               <form className="loginForm" onSubmit={this.handleSubmitJwtAuth}>
+                <div role="alert">
+                  {error && <p className="red">{error}</p>}
+                </div>
+
                 <fieldset>
                   <label htmlFor="loginForm__username">Username: </label>
                   <input
