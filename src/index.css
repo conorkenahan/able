@@ -107,6 +107,7 @@ input[type="submit"] {
   box-shadow: 2px 2px 2px 0 #1a1b41;
   -webkit-transition: box-shadow 0.1s;
   transition: box-shadow 0.1s;
+  cursor: pointer;
 }
 
 /* CLASSES */

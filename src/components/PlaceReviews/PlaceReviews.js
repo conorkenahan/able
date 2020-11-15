@@ -10,16 +10,11 @@ export default class PlaceReviews extends Component {
     place: {},
     reviews: [],
     error: false,
+    rerender: true,
+    res: [],
   };
 
-  static defaultProps = {
-    location: {},
-    history: {
-      push: () => {},
-    },
-  };
-
-  componentDidMount() {
+  getReviews() {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     fetch(
       proxyurl +
@@ -44,6 +39,15 @@ export default class PlaceReviews extends Component {
         this.setState({ reviews });
       });
   }
+
+  componentDidMount() {
+    this.getReviews();
+  }
+  reRenderComponent = (res) => {
+    console.log(res);
+    this.setState({ res });
+    this.getReviews();
+  };
 
   render() {
     return (
@@ -80,7 +84,10 @@ export default class PlaceReviews extends Component {
         <section className="place">
           {TokenService.hasAuthToken() ? (
             <div className="newReviewContainer">
-              <NewReview placeid={this.props.match.params.place_id} />
+              <NewReview
+                placeid={this.props.match.params.place_id}
+                reRenderComponent={(res) => this.reRenderComponent(res)}
+              />
             </div>
           ) : (
             <div className="loginReminder">

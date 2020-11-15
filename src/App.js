@@ -21,6 +21,7 @@ export default class App extends React.Component {
     startButtonHidden: false,
     loading: false,
     error: false,
+    rerender: {},
 
     //need to fetch Photo References for each location to display on reviews page
 

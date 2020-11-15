@@ -9,6 +9,7 @@ export default class NewReview extends React.Component {
     season: "Spring",
     timeOfDay: "Morning",
     reviewText: "Leave review here",
+    error: false,
   };
 
   changeRating = (newRating) => {
@@ -47,12 +48,7 @@ export default class NewReview extends React.Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        this.setState({
-          rating: 0,
-          season: "Spring",
-          timeOfDay: "Morning",
-          reviewText: "Leave review here",
-        });
+        this.props.reRenderComponent(res);
       })
       .catch((res) => {
         this.setState({ error: res.error });

@@ -10,8 +10,6 @@ export default class RegistrationPage extends Component {
   };
 
   handleSubmit = (e) => {
-    console.log(e.target);
-
     e.preventDefault();
     const { name, password, username, email } = e.target;
 
@@ -36,7 +34,6 @@ export default class RegistrationPage extends Component {
   };
 
   render() {
-    const { error } = this.state;
     return (
       <section className="registrationPage">
         <form className="registrationForm" onSubmit={this.handleSubmit}>
