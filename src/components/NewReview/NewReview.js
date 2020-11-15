@@ -8,7 +8,6 @@ export default class NewReview extends React.Component {
     rating: 0,
     season: "Spring",
     timeOfDay: "Morning",
-    reviewText: "Leave review here",
     error: false,
   };
 
@@ -48,7 +47,14 @@ export default class NewReview extends React.Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        this.props.reRenderComponent(res);
+        this.props.getReviews();
+        this.setState({
+          rating: 0,
+          season: "Spring",
+          timeOfDay: "Morning",
+          reviewText: "Leave review here",
+        });
+        reviewBody.value = "";
       })
       .catch((res) => {
         this.setState({ error: res.error });
@@ -148,7 +154,7 @@ export default class NewReview extends React.Component {
               type="text"
               name="reviewBody"
               className="reviewBody"
-              placeholder={this.state.reviewText}
+              placeholder="Leave review here"
               required
             ></textarea>
             <input type="submit" value="Submit"></input>

@@ -43,11 +43,6 @@ export default class PlaceReviews extends Component {
   componentDidMount() {
     this.getReviews();
   }
-  reRenderComponent = (res) => {
-    console.log(res);
-    this.setState({ res });
-    this.getReviews();
-  };
 
   render() {
     return (
@@ -86,7 +81,7 @@ export default class PlaceReviews extends Component {
             <div className="newReviewContainer">
               <NewReview
                 placeid={this.props.match.params.place_id}
-                reRenderComponent={(res) => this.reRenderComponent(res)}
+                getReviews={() => this.getReviews()}
               />
             </div>
           ) : (
