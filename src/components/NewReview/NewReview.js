@@ -39,6 +39,7 @@ export default class NewReview extends React.Component {
       },
       body: JSON.stringify({
         placeid: this.props.placeid,
+        placename: this.props.placename,
         season: season.value,
         timeofday: timeOfDay.value,
         reviewbody: reviewBody.value,

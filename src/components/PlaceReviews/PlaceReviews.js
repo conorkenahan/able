@@ -81,6 +81,7 @@ export default class PlaceReviews extends Component {
             <div className="newReviewContainer">
               <NewReview
                 placeid={this.props.match.params.place_id}
+                placename={this.state.place.name}
                 getReviews={() => this.getReviews()}
               />
             </div>
