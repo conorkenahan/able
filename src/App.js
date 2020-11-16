@@ -94,8 +94,17 @@ export default class App extends React.Component {
           <Route exact path="/">
             <section className="description">
               <h2>Able</h2>
-              <h4>Find locations that are accessible for YOUR needs.</h4>
-              <h5>View reviews of your favorite, or new, locations below!</h5>
+              <h4>
+                Able is a website designed to help people with disabilities find
+                locations that are accessible for their needs.
+              </h4>
+              <p>
+                The term "accessible" has different meanings to different
+                people. Able is here to act as a community to help <i>anyone</i>{" "}
+                share their experiences visiting different locations.
+              </p>
+              <p></p>
+              <h4>View reviews of your favorite, or new, locations below!</h4>
             </section>
             {this.state.error ? (
               <>

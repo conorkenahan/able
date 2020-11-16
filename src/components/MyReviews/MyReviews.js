@@ -27,18 +27,24 @@ export default class MyReviews extends React.Component {
     return (
       <section>
         <section className="placeReviews">
-          <ul>
-            {this.state.reviews.map((review, i) => {
-              return (
-                <li key={i}>
-                  <Review
-                    review={review}
-                    getReviewsByUser={() => this.getReviewsByUser()}
-                  />
-                </li>
-              );
-            })}
-          </ul>
+          {this.state.reviews.length > 0 ? (
+            <ul>
+              {this.state.reviews.map((review, i) => {
+                return (
+                  <li key={i}>
+                    <Review
+                      review={review}
+                      getReviewsByUser={() => this.getReviewsByUser()}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <>
+              <h2>Your saved reviews will show here!</h2>
+            </>
+          )}
         </section>
       </section>
     );

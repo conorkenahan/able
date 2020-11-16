@@ -60,15 +60,20 @@ export default class Review extends React.Component {
   }
 
   render() {
-    const { review = {} } = this.props;
+    const { review = {} } = this.props || {};
     return (
       <section className="review">
         <h1 className="reviewUsername">{review.username}</h1>
         <h2 className="reviewPlacename">{review.placename}</h2>
-        <p className="visitedDate">
-          (Visited on a {review.season.toLowerCase()}{" "}
-          {review.timeofday.toLowerCase()}.)
-        </p>
+        {review.season && review.timeofday ? (
+          <p className="visitedDate">
+            (Visited on a {review.season.toLowerCase()}{" "}
+            {review.timeofday.toLowerCase()}.)
+          </p>
+        ) : (
+          <></>
+        )}
+
         <p className="reviewText">{review.reviewbody}</p>
         <StarRatings
           rating={review.rating}
