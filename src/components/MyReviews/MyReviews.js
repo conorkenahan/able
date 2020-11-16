@@ -8,7 +8,7 @@ export default class MyReviews extends React.Component {
     reviews: [],
   };
 
-  componentDidMount() {
+  getReviewsByUser() {
     fetch(`${config.ABLE_API_ENDPOINT}/reviews/by_user`, {
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -19,6 +19,10 @@ export default class MyReviews extends React.Component {
         this.setState({ reviews });
       });
   }
+
+  componentDidMount() {
+    this.getReviewsByUser();
+  }
   render() {
     return (
       <section>
@@ -27,7 +31,10 @@ export default class MyReviews extends React.Component {
             {this.state.reviews.map((review, i) => {
               return (
                 <li key={i}>
-                  <Review review={review} />
+                  <Review
+                    review={review}
+                    getReviewsByUser={() => this.getReviewsByUser()}
+                  />
                 </li>
               );
             })}

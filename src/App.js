@@ -10,6 +10,7 @@ import MyReviews from "./components/MyReviews/MyReviews";
 import RegistrationPage from "./components/Registration/RegistrationPage";
 import LoginPage from "./components/Login/LoginPage";
 import Nav from "./components/Nav/Nav";
+import TokenService from "./services/token-service";
 
 export default class App extends React.Component {
   state = {
@@ -31,6 +32,28 @@ export default class App extends React.Component {
     },
     setLoadingToFalse: () => {
       this.setState({ loading: false });
+    },
+
+    deleteReview: (e) => {
+      e.preventDefault();
+      fetch(`${config.ABLE_API_ENDPOINT}/reviews`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        },
+        body: JSON.stringify({
+          reviewid: this.props.review.id,
+          userid: this.props.review.userid,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.props.getReviewsByUser();
+        })
+        .catch((res) => {
+          this.setState({ error: res.error });
+        });
     },
   };
 

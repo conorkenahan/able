@@ -99,7 +99,10 @@ export default class PlaceReviews extends Component {
               {this.state.reviews.map((review, i) => {
                 return (
                   <li key={i}>
-                    <Review review={review} />
+                    <Review
+                      review={review}
+                      getReviews={() => this.getReviews()}
+                    />
                   </li>
                 );
               })}

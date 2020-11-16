@@ -323,7 +323,8 @@ input[type="submit"] {
   color: #111d4a;
 }
 
-.submitButton {
+.submitButton,
+.deleteReview {
   font-family: Comfortaa, "Open Sans", sans-serif;
   font-weight: bold;
   font-size: 15px;

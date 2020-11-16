@@ -1,11 +1,66 @@
 import React from "react";
 import StarRatings from "react-star-ratings";
+import TokenService from "../../services/token-service";
+import config from "../../config";
 
 export default class Review extends React.Component {
+  static defaultProps = {
+    getReviews: () => {},
+    getReviewsByUser: () => {},
+  };
+
+  state = {
+    userid: [],
+  };
+
+  deleteReview = () => {
+    this.props.getReviews();
+    this.props.getReviewsByUser();
+    fetch(`${config.ABLE_API_ENDPOINT}/reviews`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        reviewid: this.props.review.id,
+        userid: this.props.review.userid,
+      }),
+    })
+      .then((res) => {
+        this.props.getReviews();
+        this.props.getReviewsByUser();
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
+
+  getUserId = () => {
+    fetch(`${config.ABLE_API_ENDPOINT}/users/userid`, {
+      headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then((res) =>
+        !res.ok
+          ? res
+              .json()
+              .then((e) => Promise.reject(e))
+              .then(this.setState({ userid: false }))
+          : res.json()
+      )
+      .then((userid) => {
+        this.setState({ userid });
+      });
+  };
+
+  componentDidMount() {
+    this.getUserId();
+  }
+
   render() {
     const { review = {} } = this.props;
-
-    this.componentDidMount = () => {};
     return (
       <section className="review">
         <h1 className="reviewUsername">{review.username}</h1>
@@ -25,6 +80,13 @@ export default class Review extends React.Component {
         <p className="reviewDate">
           {new Date(review.reviewdate).toLocaleDateString()}
         </p>
+        {this.state.userid ? (
+          <button className="deleteReview" onClick={() => this.deleteReview()}>
+            Delete Review
+          </button>
+        ) : (
+          <></>
+        )}
       </section>
     );
   }
