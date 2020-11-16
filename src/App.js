@@ -98,13 +98,16 @@ export default class App extends React.Component {
                 Able is a website designed to help people with disabilities find
                 locations that are accessible for their needs.
               </h4>
-              <p>
+              <p className="subtext background">
                 The term "accessible" has different meanings to different
-                people. Able is here to act as a community to help <i>anyone</i>{" "}
-                share their experiences visiting different locations.
+                people. Able is here to act as a community to help anyone share
+                their experiences visiting different locations.
               </p>
               <p></p>
-              <h4>View reviews of your favorite, or new, locations below!</h4>
+              <h4>
+                Click the markers below to view reviews of locations in the
+                Brooklyn area!
+              </h4>
             </section>
             {this.state.error ? (
               <>

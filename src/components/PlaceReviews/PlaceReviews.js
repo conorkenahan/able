@@ -6,6 +6,9 @@ import NewReview from "../NewReview/NewReview";
 import TokenService from "../../services/token-service";
 
 export default class PlaceReviews extends Component {
+  static defaultProps = {
+    match: { params: {} },
+  };
   state = {
     place: {},
     reviews: [],

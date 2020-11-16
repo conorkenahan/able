@@ -267,6 +267,11 @@ input[type="submit"] {
   padding: 20px;
 }
 
+.background {
+  background-color: rgb(164, 161, 208);
+  border-radius: 20px;
+}
+
 .markerTitle {
   font-size: 20px;
   font-weight: 600;
