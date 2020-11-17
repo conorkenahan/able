@@ -152,6 +152,10 @@ input[type="submit"] {
   text-decoration: none;
 }
 
+.googleMapDiv {
+  padding-bottom: 150px;
+}
+
 .googleMap {
   display: flex;
   flex-direction: column;
