@@ -34,6 +34,8 @@ export default class RegistrationPage extends Component {
   };
 
   render() {
+    const { error } = this.state;
+
     return (
       <section className="registrationPage">
         <form className="registrationForm" onSubmit={this.handleSubmit}>
@@ -107,6 +109,7 @@ export default class RegistrationPage extends Component {
             ></input>
             <input type="submit" value="Submit"></input>
           </fieldset>
+          <div role="alert">{error && <p className="red">{error}</p>}</div>
         </form>
       </section>
     );
