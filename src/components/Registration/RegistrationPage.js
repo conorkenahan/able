@@ -6,31 +6,47 @@ export default class RegistrationPage extends Component {
     onRegistrationSuccess: () => {},
   };
   state = {
-    error: null,
+    error: "",
+    name: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, password, username, email } = e.target;
+    const { name, password, confirmPassword, username, email } = this.state;
 
-    this.setState({ error: null });
-    AuthApiService.postUser({
-      name: name.value,
-      password: password.value,
-      username: username.value,
-      email: email.value,
-    })
-      .then((user) => {
-        name.value = "";
-        password.value = "";
-        username.value = "";
-        email.value = "";
-        const { history } = this.props;
-        history.push("/login");
+    let user = {
+      name,
+      password,
+      username,
+      email,
+    };
+
+    if (password !== confirmPassword) {
+      this.setState({ error: "Passwords must match" });
+      return false;
+    } else {
+      AuthApiService.postUser({
+        user,
       })
-      .catch((res) => {
-        this.setState({ error: res.error });
-      });
+        .then((user) => {
+          this.setState({
+            name: "",
+            username: "",
+            password: "",
+            confirmPassword: "",
+            email: "",
+          });
+          const { history } = this.props;
+          history.push("/login");
+        })
+        .catch((res) => {
+          this.setState({ error: res.error });
+        });
+    }
   };
 
   render() {
@@ -53,6 +69,7 @@ export default class RegistrationPage extends Component {
               id="signupName"
               placeholder="name"
               required
+              onChange={(e) => this.setState({ name: e.target.value })}
             ></input>
             <label
               className="registrationForm_username"
@@ -66,6 +83,7 @@ export default class RegistrationPage extends Component {
               id="signupUsername"
               placeholder="username"
               required
+              onChange={(e) => this.setState({ username: e.target.value })}
             ></input>
             <label
               className="registrationForm_password"
@@ -79,21 +97,25 @@ export default class RegistrationPage extends Component {
               id="signupPassword"
               placeholder="password"
               required
+              onChange={(e) => this.setState({ password: e.target.value })}
             ></input>
             {/* need to add confirm password input */}
-            {/* <label
-              className="registrationForm_password-repeat"
-              htmlFor="registrationForm_password-repeat"
+            <label
+              className="registrationForm_confirmPassword"
+              htmlFor="registrationForm_confirmPassword"
             >
               Confirm Password:{" "}
             </label>
             <input
-            type="password-repeat"
-            name="password-repeat"
-            id="signupPassword-repeat"
-            placeholder="password"
-            required
-          ></input> */}
+              type="password"
+              name="confirmPassword"
+              id="signupconfirmPassword"
+              placeholder="Confirm Password"
+              required
+              onChange={(e) =>
+                this.setState({ confirmPassword: e.target.value })
+              }
+            ></input>
             <label
               className="registrationForm_email"
               htmlFor="registrationForm_email"
@@ -106,6 +128,7 @@ export default class RegistrationPage extends Component {
               id="signupEmail"
               placeholder="email"
               required
+              onChange={(e) => this.setState({ email: e.target.value })}
             ></input>
             <input type="submit" value="Submit"></input>
           </fieldset>
