@@ -11,6 +11,7 @@ import RegistrationPage from "./components/Registration/RegistrationPage";
 import LoginPage from "./components/Login/LoginPage";
 import Nav from "./components/Nav/Nav";
 import TokenService from "./services/token-service";
+import title from "./images/roam-title.png";
 
 export default class App extends React.Component {
   state = {
@@ -36,7 +37,7 @@ export default class App extends React.Component {
 
     deleteReview: (e) => {
       e.preventDefault();
-      fetch(`${config.ABLE_API_ENDPOINT}/reviews`, {
+      fetch(`${config.ROAM_API_ENDPOINT}/reviews`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -93,21 +94,26 @@ export default class App extends React.Component {
 
           <Route exact path="/">
             <section className="description">
-              <h2>Able</h2>
-              <h4>
-                Able is a website designed to help people with disabilities find
-                locations that are accessible for their needs.
-              </h4>
-              <p className="subtext background">
+              <img
+                src={title}
+                className="roamTitle"
+                alt="roam title"
+                aria-label="roam title"
+              ></img>
+              <h2 className="descriptionText1">
+                Roam is here to help people with disabilities find locations
+                that are accessible for their needs.
+              </h2>
+              <h2 className="descriptionText2">
                 The term "accessible" has different meanings to different
-                people. Able is here to act as a community to help anyone share
+                people. Roam is here to act as a community to help anyone share
                 their experiences visiting different locations.
-              </p>
+              </h2>
               <p></p>
-              <h4>
+              <h2 className="descriptionText3">
                 Click the markers below to view reviews of locations in the
                 Brooklyn area!
-              </h4>
+              </h2>
             </section>
             {this.state.error ? (
               <>

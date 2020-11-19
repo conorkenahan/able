@@ -31,7 +31,7 @@ export default class NewReview extends React.Component {
   submitReview = (e) => {
     e.preventDefault();
     const { season, timeOfDay, reviewBody } = e.target;
-    fetch(`${config.ABLE_API_ENDPOINT}/reviews`, {
+    fetch(`${config.ROAM_API_ENDPOINT}/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,7 @@ export default class NewReview extends React.Component {
     const seasons = ["Spring", "Summer", "Fall", "Winter"];
     const timesOfDay = ["Morning", "Afternoon", "Evening", "N/A"];
     return (
-      <section>
+      <section className="newReviewContainer">
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <form
           id="reviewForm"
@@ -79,78 +79,87 @@ export default class NewReview extends React.Component {
           <fieldset>
             <h3>Leave Review</h3>
             <p>
-              Please leave as many details as possible, including the month and
-              time of day you visited, to help users understand your experience
-              at this place.
+              Please leave as <i>many</i> details as possible, including the
+              month and time of day you visited, to help users understand your
+              experience at this place.
             </p>
             <p className="subtext">
               For example: "This trail was great, but even in my motorized
               wheelchair, I found it difficult to navigate..."
             </p>
-            <h4>Season of your visit:</h4>
-            <div className="radioOptions">
-              {seasons.map((season, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={
-                      "radioButton" +
-                      " " +
-                      (this.state.season === `${season}` ? "checked" : "")
-                    }
-                  >
-                    <label className={`${season} + radioLabel`}>
-                      <input
-                        type="radio"
-                        value={season}
-                        name="season"
-                        className="hidden"
-                        checked={this.state.season === `${season}`}
-                        onChange={this.handleSeasonChange}
-                      />
-                      {season}
-                    </label>
-                  </div>
-                );
-              })}
+            <div className="radioOptionsContainer">
+              <h4>Season of your visit:</h4>
+              <div className="radioOptions">
+                {seasons.map((season, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className={
+                        "radioButton" +
+                        " " +
+                        (this.state.season === `${season}` ? "checked" : "")
+                      }
+                    >
+                      <label className={`${season} + radioLabel`}>
+                        <input
+                          type="radio"
+                          value={season}
+                          name="season"
+                          className="hidden"
+                          checked={this.state.season === `${season}`}
+                          onChange={this.handleSeasonChange}
+                        />
+                        {season}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="radioOptionsContainer">
+                <h4>Time of day of your visit:</h4>
+                <div className="radioOptions">
+                  {timesOfDay.map((timeOfDay, i) => {
+                    return (
+                      <div
+                        key={i}
+                        className={
+                          "radioButton" +
+                          " " +
+                          (this.state.timeOfDay === `${timeOfDay}`
+                            ? "checked"
+                            : "")
+                        }
+                      >
+                        <label className={`${timeOfDay} + radioLabel`}>
+                          <input
+                            type="radio"
+                            value={timeOfDay}
+                            name="timeOfDay"
+                            className="hidden"
+                            checked={this.state.timeOfDay === `${timeOfDay}`}
+                            onChange={this.handleTimeChange}
+                          />
+                          {timeOfDay}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-            <h4>Time of day of your visit:</h4>
-            <div className="radioOptions">
-              {timesOfDay.map((timeOfDay, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={
-                      "radioButton" +
-                      " " +
-                      (this.state.timeOfDay === `${timeOfDay}` ? "checked" : "")
-                    }
-                  >
-                    <label className={`${timeOfDay} + radioLabel`}>
-                      <input
-                        type="radio"
-                        value={timeOfDay}
-                        name="timeOfDay"
-                        className="hidden"
-                        checked={this.state.timeOfDay === `${timeOfDay}`}
-                        onChange={this.handleTimeChange}
-                      />
-                      {timeOfDay}
-                    </label>
-                  </div>
-                );
-              })}
+            <div className="startRatingsContainer">
+              <h4>Star Rating:</h4>
+              <StarRatings
+                rating={this.state.rating}
+                starRatedColor="#2d2dea"
+                starEmptyColor="#727272"
+                starHoverColor="2d2dea"
+                changeRating={this.changeRating}
+                name="rating"
+                numberOfStars={5}
+                starDimension="30px"
+              />
             </div>
-            <h4>Star Rating:</h4>
-            <StarRatings
-              rating={this.state.rating}
-              starRatedColor="rgb(65, 91, 196)"
-              starHoverColor="rgb(65, 91, 196)"
-              changeRating={this.changeRating}
-              name="rating"
-              numberOfStars={5}
-              starDimension="30px"
-            />
             <textarea
               type="text"
               name="reviewBody"

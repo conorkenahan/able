@@ -42,9 +42,9 @@ export default class Nav extends React.Component {
     return (
       <section className="nav">
         <header>
-          <h1 className="ableLink">
+          <h1 className="roamLink">
             <Link className="link" to="/">
-              Able
+              Roam
             </Link>
           </h1>
         </header>

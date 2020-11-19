@@ -35,7 +35,7 @@ export default class PlaceReviews extends Component {
         this.setState({ error: true });
       });
     fetch(
-      config.ABLE_API_ENDPOINT + "/reviews/" + this.props.match.params.place_id
+      config.ROAM_API_ENDPOINT + "/reviews/" + this.props.match.params.place_id
     )
       .then((res) => res.json())
       .then((reviews) => {
@@ -81,7 +81,7 @@ export default class PlaceReviews extends Component {
 
         <section className="place">
           {TokenService.hasAuthToken() ? (
-            <div className="newReviewContainer">
+            <div>
               <NewReview
                 placeid={this.props.match.params.place_id}
                 placename={this.state.place.name}

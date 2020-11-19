@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Comfortaa";
-  src: local("Comfortaa-VariableFont_wght"),
-    url(./fonts/Comfortaa-VariableFont_wght.ttf) format("truetype");
+  font-family: "Cheltenham";
+  src: local("cheltenham-normal-200"),
+    url(./fonts/cheltenham-normal-200.ttf) format("truetype");
 }
 
 body {
@@ -11,7 +11,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f7f7ff;
+  background: url("./images/background-transparant.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #fef1eb;
 }
 
 code {
@@ -24,9 +29,9 @@ code {
 }
 
 body {
-  font-family: Comfortaa, "Open Sans", sans-serif;
+  font-family: Cheltenham, "Open Sans", sans-serif;
   font-size: 20px;
-  color: #111d4a;
+  color: #2d2dea;
   text-align: center;
   line-height: 1.5;
 }
@@ -61,20 +66,19 @@ a {
 }
 
 p {
-  margin: 10px auto;
+  margin: auto;
   max-width: 650px;
 }
 
 fieldset {
-  width: 100%;
   padding: 20px 40px;
-  margin: 0 auto;
+  min-width: auto;
   display: flex;
-  flex-flow: column nowrap;
-  background-color: rgb(164, 161, 208);
+  flex-direction: column;
+  color: #2d2dea;
+  background-color: #fae6dd;
   border: none;
   border-radius: 4px;
-  box-shadow: -1px 1px 5px 4px #8789c0;
 }
 
 fieldset label {
@@ -89,7 +93,7 @@ fieldset input {
   padding: 0 0.5em;
   border-radius: 2px;
   border: 2px solid #1a1b41;
-  background-color: #f7f7ff;
+  background-color: #fef1eb;
   color: rgb(0, 0, 0);
 }
 
@@ -100,21 +104,37 @@ input[type="submit"] {
   margin: 40px auto 20px;
   padding: 8px 20px 8px 20px;
   width: auto;
-  color: #fff;
-  background-color: #736b9c;
+  color: #2d2dea;
+  background-color: #d7d7ff;
   border: 1px solid #454545;
   border-radius: 2px;
-  box-shadow: 2px 2px 2px 0 #1a1b41;
-  -webkit-transition: box-shadow 0.1s;
-  transition: box-shadow 0.1s;
+
   cursor: pointer;
+}
+
+textarea {
+  background-color: #fef1eb;
 }
 
 /* CLASSES */
 
+.roamTitle {
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.navTitle {
+  width: 100px;
+  margin: 0;
+  padding-top: 10px;
+}
+
 .errorMessage {
-  background: #111d4a;
-  color: #f7f7ff;
+  background: #fef1eb;
+  color: #fef1eb;
   border: 3px round #454545;
   border-radius: 20px;
   padding: 10px;
@@ -127,12 +147,16 @@ input[type="submit"] {
   display: none;
 }
 
-.ableLink {
+.roamLink {
   margin: 10px;
 }
 
 .link {
-  color: #111d4a;
+  color: #2d2dea;
+}
+
+.placeLink {
+  text-decoration: none;
 }
 
 .nav {
@@ -148,12 +172,14 @@ input[type="submit"] {
 .navLink {
   margin: 10px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
 }
 
 .googleMapDiv {
   padding-bottom: 150px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .googleMap {
@@ -170,70 +196,82 @@ input[type="submit"] {
   margin: 40px auto;
 }
 
-/* 
-.locationSearch {
-  padding-bottom: 20px;
-}
-.location-search-input {
-  width: 250px;
-  height: 300px;
-  font-size: large;
-  margin-top: 10px;
-} */
-
 .description {
-  width: 60%;
+  font-size: small;
+  width: 80%;
+  max-width: 900px;
   margin: auto;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.descriptionText2 {
+  text-align: center;
+  max-width: 1000px;
+  color: #5757e4db;
+  background-color: #fae6dd;
+  border-radius: 50%;
+  font-style: italic;
+  width: 70%;
+  padding: 40px 50px 30px 50px;
+  margin: 30px auto 20px auto;
 }
 
 .place {
   display: flex;
   flex-direction: row;
-  border-top: solid grey;
-  padding-top: 40px;
 }
 
 .placeDescription {
   text-align: center;
+  padding-bottom: 30px;
 }
 
 .placeReviews {
-  margin: 40px;
+  margin: 30px;
   flex-grow: 1;
 }
 
 .newReviewContainer {
   margin-top: 20px;
-  margin: 40px;
+  margin: 30px;
 }
 
 .review {
-  background-color: rgb(164, 161, 208);
+  margin: auto;
+  max-width: 800px;
+  color: #2d2dea;
+  background-color: #fae6dd;
   padding-bottom: 20px;
   padding-top: 10px;
   border-radius: 4px;
-  box-shadow: -1px 1px 5px 4px #8789c0;
   margin-bottom: 25px;
+  padding: 20px;
 }
 .reviewUsername {
-  margin: 0;
-  color: #111d4a;
+  margin: auto;
+  color: #2d2dea;
+  background-color: #fef1eb;
+  width: 20%;
+  border-radius: 50%;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
 }
+
 .reviewText {
-  color: #f7f7ff;
+  color: #2d2dea;
   text-align: left;
-  padding-left: 20px;
+  padding: 20px;
+  padding-left: 40px;
 }
 .reviewDate {
   font-size: smaller;
-  color: #111d4a;
+  color: #2d2dea;
 }
 
 .visitedDate {
-  color: #111d4a;
+  color: #4f4f4f;
   font-style: italic;
 }
 
@@ -256,6 +294,7 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 
 .reviewBody {
@@ -266,14 +305,17 @@ input[type="submit"] {
 }
 
 .subtext {
-  color: #111d4a;
+  color: #2d2dea;
+  background-color: #fef1eb;
+  border-radius: 50%;
   font-style: italic;
-  padding: 20px;
+  padding: 28px;
+  margin: 10px;
 }
 
 .background {
-  background-color: rgb(164, 161, 208);
-  border-radius: 20px;
+  background-color: #cacaf9;
+  border-radius: 15px;
 }
 
 .markerTitle {
@@ -301,15 +343,21 @@ input[type="submit"] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-align: left;
+  align-items: center;
+}
+.radioOptionsContainer {
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 .radioLabel {
   cursor: pointer;
 }
 
 .loginReminder {
-  background-color: rgb(164, 161, 208);
-  color: #f7f7ff;
-  box-shadow: -1px 1px 5px 4px #8789c0;
+  background-color: #fae6dd;
+  color: #2d2dea;
   border-radius: 8px;
   max-height: 115px;
   width: 400px;
@@ -320,16 +368,17 @@ input[type="submit"] {
 /* buttons */
 
 .radioButton {
-  color: #f7f7ff;
+  text-align: center;
+  color: #2d2dea;
   width: 110px;
-  border: 2px solid #f7f7ff;
+  border: 2px solid #fef1eb;
   border-radius: 2px;
   cursor: pointer;
   margin: 2px;
 }
 .checked {
-  background: #f7f7ff;
-  color: #111d4a;
+  background: #fef1eb;
+  color: #2d2dea;
 }
 
 .submitButton,
@@ -340,18 +389,15 @@ input[type="submit"] {
   margin: 40px auto 20px;
   padding: 8px 20px 8px 20px;
   width: auto;
-  color: #fff;
-  background-color: #736b9c;
+  color: #2d2dea;
+  background-color: #d7d7ff;
   border: 1px solid #454545;
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px 0 #1a1b41;
-  -webkit-transition: box-shadow 0.1s;
-  transition: box-shadow 0.1s;
+  border-radius: 3px;
 }
 
 /* MOBILE */
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   body {
     display: flex;
     flex-direction: column;
@@ -373,7 +419,7 @@ input[type="submit"] {
     height: 200px;
     width: auto;
   }
-}
+} */
 
 @media only screen and (min-width: 520px) {
   fieldset {
@@ -383,22 +429,108 @@ input[type="submit"] {
 }
 
 @media only screen and (max-width: 520px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    background: url("./images/background-transparant-mobile.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    background-color: #fef1eb;
+  }
+
+  fieldset {
+    width: auto;
+    margin: 20px;
+  }
+
+  /* CLASSES */
+  .roamTitle {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .navLink {
+    font-size: medium;
+  }
+
+  .description {
+    width: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    align-items: center;
+  }
+
+  .descriptionText1 {
+    text-align: center;
+    background-color: #cacaf9;
+    border-radius: 50%;
+    padding: 40px;
+    margin-left: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .descriptionText2 {
+    width: auto;
+    text-align: center;
+    background-color: #fae6dd;
+    color: #2d2dea;
+    padding: 30px;
+    border-radius: 50%;
+    margin-right: 40px;
+  }
+
+  .descriptionText3 {
+    text-align: center;
+    background-color: #cacaf9;
+    border-radius: 50%;
+    padding: 30px;
+    margin-left: 60px;
+  }
+
+  .prospectParkImage {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .googleMap {
+    height: 200px;
+    width: auto;
+  }
   .place {
     display: flex;
     flex-direction: column;
   }
 
   .newReviewContainer {
+    margin: 30px;
+  }
+
+  .loginReminder {
+    width: auto;
     margin: 10px;
+    padding-bottom: 20px;
+  }
+
+  .radioOptionsContainer {
+    display: flex;
+    flex-direction: row;
   }
 
   .radioOptions {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width: 80px;
+    padding: 10px;
+    width: 150px;
   }
 
+  /* BUTTONS */
   .radiolabel,
   .radioButton {
     width: auto;
