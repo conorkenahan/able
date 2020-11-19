@@ -58,6 +58,15 @@ export default class App extends React.Component {
     },
   };
 
+  fetchWithTimeout(url, options, timeout = 8000) {
+    return Promise.race([
+      fetch(url, options),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("timeout")), timeout)
+      ),
+    ]);
+  }
+
   componentDidMount() {
     this.setState({ error: false });
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -65,18 +74,24 @@ export default class App extends React.Component {
       mapHidden: false,
       startButtonHidden: true,
     });
-    fetch(
+    this.fetchWithTimeout(
       proxyurl +
         config.NEARBY_PLACES_API_ENDPOINT +
         "location=40.670869,-73.961961&radius=1500&key=" +
-        process.env.REACT_APP_GOOGLE_API_KEY
+        process.env.REACT_APP_GOOGLE_API_KEY,
+      {
+        timeout: 6000,
+      }
     )
       .then((res) => res.json())
       .then((res) => {
         this.setState({ markers: res.results.slice(0, 8) });
+        this.setState({ error: false });
       })
       .catch((error) => {
-        this.setState({ error: true });
+        this.setState({
+          error: true,
+        });
         console.log(
           "Can’t access " +
             config.NEARBY_PLACES_API_ENDPOINT +

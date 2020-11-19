@@ -1,10 +1,23 @@
-# Getting Started with Create React App
+# Roam
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Roam](https://roam.vercel.app/) is here to help disabled people find locations that are accesible for their needs.
 
-## Available Scripts
+https://roam.vercel.app/
 
-In the project directory, you can run:
+## Screenshots
+
+### View locations in your local area (currently restriction to Brooklyn, NY)
+
+<img src="./src/images/screenshots/screenshot-map" width="256">
+
+### View reviews of each location, with the option (when logged in) to leave a review of your own.
+
+<img src="./src/images/screenshots/screenshot-main" width="256">
+<img src="./src/images/screenshots/screenshot-leave-review" width="256">
+
+### View and manage reviews on the "My Reviews" page.
+
+<img src="./src/images/screenshots/screenshot-your-reviews" width="256">
 
 ### `npm start`
 
