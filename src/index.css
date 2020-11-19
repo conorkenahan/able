@@ -150,6 +150,9 @@ textarea {
 
 .roamLink {
   margin: 10px;
+  background-color: #fef1eb;
+  border-radius: 50%;
+  padding: 10px;
 }
 
 .link {
@@ -161,7 +164,6 @@ textarea {
 }
 
 .nav {
-  border-bottom: 2px solid #2d2dea90;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
