@@ -74,6 +74,7 @@ fieldset {
   padding: 20px 40px;
   min-width: auto;
   display: flex;
+  margin: auto;
   flex-direction: column;
   color: #2d2dea;
   background-color: #fae6dd;
