@@ -8,16 +8,16 @@ https://roam.vercel.app/
 
 ### View locations in your local area (currently restriction to Brooklyn, NY)
 
-<img src="./src/images/screenshots/screenshot-map.png" width="256">
+<img src="./src/images/screenshots/screenshot-map.png" width="500">
 
 ### View reviews of each location, with the option (when logged in) to leave a review of your own.
 
-<img src="./src/images/screenshots/screenshot-main.png" width="256">
+<img src="./src/images/screenshots/screenshot-main.png" width="500">
 <img src="./src/images/screenshots/screenshot-leave-review.png" width="256">
 
 ### View and manage reviews on the "My Reviews" page.
 
-<img src="./src/images/screenshots/screenshot-your-reviews.png" width="256">
+<img src="./src/images/screenshots/screenshot-your-reviews.png" width="500">
 
 ## API Documentation
 
