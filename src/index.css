@@ -161,7 +161,7 @@ textarea {
 }
 
 .nav {
-  border-bottom: 2px solid #454545;
+  border-bottom: 2px solid #2d2dea90;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
