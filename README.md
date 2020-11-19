@@ -6,7 +6,9 @@ https://roam.vercel.app/
 
 ## Screenshots
 
-### View locations in your local area (currently restriction to Brooklyn, NY)
+### View locations in your local area
+
+(currently restricted to Brooklyn, NY)
 
 <img src="./src/images/screenshots/screenshot-map.png" width="500">
 

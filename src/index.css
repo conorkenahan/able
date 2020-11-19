@@ -134,11 +134,11 @@ textarea {
 }
 
 .errorMessage {
-  background: #fef1eb;
-  color: #fef1eb;
+  background: #fae6dd;
+  color: #2d2dea;
   border: 3px round #454545;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 50%;
+  padding: 60px;
   margin: 40px auto 40px auto;
   width: 400px;
   height: auto;
