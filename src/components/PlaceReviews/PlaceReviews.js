@@ -81,7 +81,7 @@ export default class PlaceReviews extends Component {
 
         <section className="place">
           {TokenService.hasAuthToken() ? (
-            <div>
+            <div className="newReviewContainer">
               <NewReview
                 placeid={this.props.match.params.place_id}
                 placename={this.state.place.name}

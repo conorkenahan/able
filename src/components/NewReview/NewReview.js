@@ -69,7 +69,7 @@ export default class NewReview extends React.Component {
     const seasons = ["Spring", "Summer", "Fall", "Winter"];
     const timesOfDay = ["Morning", "Afternoon", "Evening", "N/A"];
     return (
-      <section className="newReviewContainer">
+      <section>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <form
           id="reviewForm"

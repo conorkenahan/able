@@ -26,7 +26,7 @@ export default class MyReviews extends React.Component {
   render() {
     return (
       <section>
-        <section className="placeReviews">
+        <section className="myReviews">
           {this.state.reviews.length > 0 ? (
             <ul>
               <h1>Your Reviews:</h1>

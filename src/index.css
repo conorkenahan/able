@@ -224,6 +224,18 @@ textarea {
 .place {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 50px 0px 50px;
+}
+
+.placeReviews {
+  flex-grow: 2;
+  margin: 60px;
+}
+
+.myReviews {
+  width: 60%;
+  margin: auto;
 }
 
 .placeDescription {
@@ -231,23 +243,13 @@ textarea {
   padding-bottom: 30px;
 }
 
-.placeReviews {
-  margin: 30px;
-  flex-grow: 1;
-}
-
 .newReviewContainer {
-  margin-top: 20px;
-  margin: 30px;
+  margin: 60px;
 }
 
 .review {
-  margin: auto;
-  max-width: 800px;
   color: #2d2dea;
   background-color: #fae6dd;
-  padding-bottom: 20px;
-  padding-top: 10px;
   border-radius: 4px;
   margin-bottom: 25px;
   padding: 20px;
@@ -359,13 +361,14 @@ textarea {
 }
 
 .loginReminder {
+  flex-grow: 1;
+  margin: 60px;
+  padding-bottom: 20px;
   background-color: #fae6dd;
   color: #2d2dea;
   border-radius: 8px;
-  max-height: 115px;
-  width: 400px;
-  margin-left: 20px;
-  margin-top: 40px;
+  height: fit-content;
+  width: 150px;
 }
 
 /* buttons */
@@ -444,8 +447,8 @@ textarea {
   }
 
   fieldset {
-    width: auto;
-    margin: 20px;
+    width: 90%;
+    margin: 10px;
   }
 
   /* CLASSES */
@@ -509,10 +512,21 @@ textarea {
   .place {
     display: flex;
     flex-direction: column;
+    align-content: center;
+    width: 90%;
+    margin: auto;
+  }
+
+  .placeReviews {
+    margin: 10px;
+  }
+
+  .myReviews {
+    width: 90%;
   }
 
   .newReviewContainer {
-    margin: 30px;
+    margin: 0;
   }
 
   .loginReminder {
@@ -523,7 +537,8 @@ textarea {
 
   .radioOptionsContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
   }
 
   .radioOptions {
@@ -536,7 +551,7 @@ textarea {
   /* BUTTONS */
   .radiolabel,
   .radioButton {
-    width: auto;
+    width: 100px;
     padding: 0;
     margin: 0;
     font-size: 15px;
