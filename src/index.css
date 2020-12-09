@@ -232,6 +232,31 @@ textarea {
   flex-grow: 2;
   margin: 60px;
 }
+.placesListDiv {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  padding: 60px;
+}
+
+.placeNames {
+  display: flex;
+  flex-direction: column;
+}
+
+.placeListNameAndTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px;
+  border-top: 2px solid gray;
+}
+
+.placeList-icon {
+  margin-top: 20px;
+  width: 50px;
+}
 
 .myReviews {
   width: 60%;
@@ -388,7 +413,8 @@ textarea {
 }
 
 .submitButton,
-.deleteReview {
+.deleteReview,
+.toggleMapButton {
   font-family: Comfortaa, "Open Sans", sans-serif;
   font-weight: bold;
   font-size: 15px;

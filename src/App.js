@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import Context from "./Context";
 import config from "./config";
 import MapContainer from "./components/Map/MapContainer";
+import PlacesList from "./components/PlacesList/PlacesList";
 import PlaceReviews from "./components/PlaceReviews/PlaceReviews";
 import NewReview from "./components/NewReview/NewReview";
 import MyReviews from "./components/MyReviews/MyReviews";
@@ -24,6 +25,7 @@ export default class App extends React.Component {
     loading: false,
     error: false,
     rerender: {},
+    toggleMap: true,
 
     //need to fetch Photo References for each location to display on reviews page
 
@@ -101,6 +103,10 @@ export default class App extends React.Component {
       });
   }
 
+  toggleMap = () => {
+    this.setState({ toggleMap: !this.state.toggleMap });
+  };
+
   render() {
     return (
       <Context.Provider value={this.state}>
@@ -139,7 +145,31 @@ export default class App extends React.Component {
               </>
             ) : (
               <section>
-                <MapContainer />
+                {this.state.toggleMap ? (
+                  <>
+                    <button
+                      className="toggleMapButton"
+                      onClick={() => {
+                        this.toggleMap();
+                      }}
+                    >
+                      Show List View
+                    </button>
+                    <MapContainer />
+                  </>
+                ) : (
+                  <>
+                    <button
+                      className="toggleMapButton"
+                      onClick={() => {
+                        this.toggleMap();
+                      }}
+                    >
+                      Show Map View
+                    </button>
+                    <PlacesList />
+                  </>
+                )}
               </section>
             )}
           </Route>
