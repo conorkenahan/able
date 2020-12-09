@@ -199,6 +199,11 @@ textarea {
   margin: 40px auto;
 }
 
+.passwordRequirement {
+  font-size: 18px;
+  padding-top: 15px;
+}
+
 .description {
   font-size: small;
   width: 80%;
@@ -249,7 +254,8 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 15px;
+  width: 600px;
+  margin: 20px auto auto auto;
   border-top: 2px solid gray;
 }
 

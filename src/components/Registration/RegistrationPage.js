@@ -130,6 +130,10 @@ export default class RegistrationPage extends Component {
               required
               onChange={(e) => this.setState({ email: e.target.value })}
             ></input>
+            <p className="passwordRequirement">
+              Password must be more than 8 characters and contain one upper
+              case, lower case, number, and special character. ( ! @ # $ %)
+            </p>
             <input type="submit" value="Submit"></input>
           </fieldset>
           <div role="alert">{error && <p className="red">{error}</p>}</div>
