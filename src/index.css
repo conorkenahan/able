@@ -435,29 +435,6 @@ textarea {
 
 /* MOBILE */
 
-/* @media only screen and (max-width: 600px) {
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .description {
-    width: 90%;
-    margin: auto;
-    align-items: center;
-  }
-
-  .prospectParkImage {
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-  }
-
-  .googleMap {
-    height: 200px;
-    width: auto;
-  }
-} */
 
 @media only screen and (min-width: 520px) {
   fieldset {
@@ -477,6 +454,18 @@ textarea {
     background-size: contain;
     background-color: #fef1eb;
   }
+
+  .placesListDiv {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.placeListNameAndTitle{
+  width: 100%;
+}
+  
 
   fieldset {
     width: 90%;
