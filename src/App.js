@@ -71,7 +71,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.setState({ error: false });
-    const proxyurl = "https://thingproxy.freeboard.io/fetch/"
+    const proxyurl = "https://shielded-sea-45679.herokuapp.com/"
     this.setState({
       mapHidden: false,
       startButtonHidden: true,

@@ -18,7 +18,7 @@ export default class PlaceReviews extends Component {
   };
 
   getReviews() {
-    const proxyurl = "https://thingproxy.freeboard.io/fetch/";
+    const proxyurl = "https://shielded-sea-45679.herokuapp.com/";
     fetch(
       proxyurl +
         config.PLACE_DETAILS_API_ENDPOINT +
