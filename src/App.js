@@ -71,7 +71,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.setState({ error: false });
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const proxyurl = "https://thingproxy.freeboard.io/fetch/"
     this.setState({
       mapHidden: false,
       startButtonHidden: true,

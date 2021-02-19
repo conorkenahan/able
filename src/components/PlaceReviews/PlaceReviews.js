@@ -18,7 +18,7 @@ export default class PlaceReviews extends Component {
   };
 
   getReviews() {
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const proxyurl = "https://thingproxy.freeboard.io/fetch/";
     fetch(
       proxyurl +
         config.PLACE_DETAILS_API_ENDPOINT +
